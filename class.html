@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<style>
+    .highlight{
+       color: crimson;
+       background-color: goldenrod;
+    }
+</style>
+<body>
+    <h2 id="demo">This is a Heading.</h2>
+  <script>
+    $(document).ready(function(){
+        $("#demo").addClass("highlight");
+
+        setTimeout(function(){
+            $("#demo").removeClass("highlight");
+
+        },3000)
+    })
+    </script>
+</body>
+</html>

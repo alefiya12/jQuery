@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Slider with Animation</title>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<style>
+  .slider {
+    width: 300px;
+    overflow: hidden;
+    margin-bottom: 20px;
+  }
+  .slider-content {
+    display: flex;
+    transition: transform 0.5s ease;
+  }
+  .slide {
+    width: 300px;
+    height: 300px;
+    flex-shrink: 0;
+  }
+</style>
+</head>
+<body>
+<div class="slider">
+  <div class="slider-content">
+    <div class="slide" style="background-color: crimson;"></div>
+    <div class="slide" style="background-color: lightgreen;"></div>
+    <div class="slide" style="background-color: goldenrod;"></div>
+  </div>
+</div>
+<button id="prev">Prev</button>
+<button id="next">Next</button>
+<script>
+  $(document).ready(function(){
+    var slideWidth = $(".slide").outerWidth();
+    var slideIndex = 0;
+    
+    $("#next").click(function(){
+      if (slideIndex < $(".slide").length - 1) {
+        slideIndex++;
+        $(".slider-content").animate({ "margin-left": -slideIndex * slideWidth }, 500);
+      }
+    });
+
+    $("#prev").click(function(){
+      if (slideIndex > 0) {
+        slideIndex--;
+        $(".slider-content").animate({ "margin-left": -slideIndex * slideWidth }, 500);
+      }
+    });
+  });
+</script>
+</body>
+</html>
